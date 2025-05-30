@@ -25,23 +25,27 @@ const Page = () => {
 				<div className='card'>
 					<img src={item.image} alt={item.name} />
 					<div className='row'>
-						<h2>{item.name}</h2>
+						<div className='col-3'>
+							<h2>{item.name}</h2>
+							<p className='card-text'>
+								{item.status === 'Alive' ? (
+									<span className='alive circle'> </span>
+								) : item.status === 'Dead ' ? (
+									<span className='dead circle'> </span>
+								) : (
+									<span className='unknown circle'> </span>
+								)}{' '}
+								{item.status} - {item.species}
+							</p>
+						</div>
 						<h3>{item.gender}</h3>
-						<p className='card-text'>
-							{item.status === 'Alive' ? (
-								<span className='alive circle'> </span>
-							) : item.status === 'Dead ' ? (
-								<span className='dead circle'> </span>
-							) : (
-								<span className='unknown circle'> </span>
-							)}{' '}
-							{item.status} - {item.species}
-						</p>
-						<h3>Origin: {item.origin.name}</h3>
-						<h4>
-							Last known location:
-							{item.location.name}
-						</h4>
+						<div className='col-3'>
+							<h3>Origin: {item.origin.name}</h3>
+							<h4>
+								Last known location:
+								{item.location.name}
+							</h4>
+						</div>
 					</div>
 				</div>
 			))}
